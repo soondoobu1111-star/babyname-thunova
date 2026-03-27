@@ -1,0 +1,24 @@
+# Secrets
+.env
+*.env
+auth_config.yaml
+api_keys/
+
+# Orders database
+orders/
+orders.db
+*.db
+
+# Generated PDF output files
+pdf/*.pdf
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db

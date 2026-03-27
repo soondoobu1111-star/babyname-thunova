@@ -1,0 +1,19 @@
+[Unit]
+Description=써노바 작명연구소 — Streamlit 앱
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/babyname
+ExecStart=/home/ubuntu/.local/bin/streamlit run app.py \
+    --server.port 8502 \
+    --server.headless true \
+    --server.enableCORS false \
+    --server.enableXsrfProtection false \
+    --browser.gatherUsageStats false
+Restart=always
+RestartSec=5
+Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin"
+
+[Install]
+WantedBy=multi-user.target

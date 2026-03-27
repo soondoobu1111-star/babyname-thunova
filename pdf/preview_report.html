@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>써노바 작명연구소 — 아기 이름 오행 분석 리포트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   색상 팔레트 (스마트스토어 기준)
+═══════════════════════════════════════ */
+:root {
+  --brown-dark:  #2b1a0e;
+  --brown-mid:   #4a2c10;
+  --gold:        #d4a76a;
+  --gold-deep:   #c49a55;
+  --gold-bg:     #fdf0df;
+  --cream:       #fdf8f2;
+  --cream-warm:  #fff7ee;
+  --border:      #eedfc8;
+  --text-dark:   #2b1a0e;
+  --text-mid:    #6b5c4e;
+  --text-light:  #8a7060;
+  --text-tiny:   #999;
+
+  --wood:  #2E7D32;
+  --fire:  #C62828;
+  --earth: #D4860A;
+  --metal: #455A64;
+  --water: #1565C0;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', '맑은 고딕', sans-serif;
+  background: #e8e0d4;
+  color: var(--text-dark);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ── A4 페이지 ─────────────────────────── */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 10mm auto;
+  background: var(--cream);
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 28px rgba(0,0,0,0.2);
+  page-break-after: always;
+}
+.page:last-of-type { page-break-after: auto; }
+.page-inner { padding: 14mm 16mm; }
+
+/* ── 공통 섹션 헤더 ─────────────────────── */
+.part-badge {
+  display: inline-block;
+  background: var(--gold-bg);
+  color: var(--gold-deep);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  border: 1px solid var(--border);
+}
+.part-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+}
+.part-block {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 20px;
+  margin-bottom: 14px;
+}
+
+/* ── 구분선 ────────────────────────────── */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+  margin: 0;
+}
+
+/* ════════════════════════════════════════
+   표지 (PAGE 1)
+════════════════════════════════════════ */
+.cover-top-banner {
+  background: #c0392b;
+  padding: 16px 22px;
+  text-align: center;
+}
+.cover-top-banner .banner-title {
+  font-size: 13px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.cover-top-banner .banner-box {
+  display: inline-block;
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 18px;
+  text-align: left;
+}
+.cover-top-banner .banner-box-title {
+  font-size: 11px;
+  color: #c0392b;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.cover-top-banner .banner-box-list {
+  font-size: 12px;
+  color: var(--text-dark);
+  line-height: 2.1;
+}
+.cover-top-banner .badge-num {
+  display: inline-block;
+  background: #c0392b;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 20px;
+  margin-right: 6px;
+}
+.cover-top-banner .banner-note {
+  font-size: 10px;
+  color: rgba(255,255,255,0.8);
+  margin-top: 8px;
+}
+
+/* 히어로 섹션 */
+.hero {
+  background: linear-gradient(160deg, var(--brown-dark) 0%, var(--brown-mid) 50%, var(--brown-dark) 100%);
+  padding: 48px 28px;
+  text-align: center;
+}
+.hero-icon { font-size: 44px; margin-bottom: 14px; }
+.hero-label {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.hero-name {
+  font-family: 'Noto Serif KR', serif;
+  color: #fff;
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 6px;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.hero-subtitle {
+  color: var(--gold);
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+.hero-info-box {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: inline-block;
+  text-align: left;
+  min-width: 220px;
+}
+.hero-info-row {
+  font-size: 12px;
+  color: rgba(255,255,255,0.8);
+  line-height: 2.1;
+}
+.hero-info-row strong { color: var(--gold); margin-right: 8px; }
+.hero-disclaimer {
+  margin-top: 18px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* 표지 내용 영역 */
+.cover-content { padding: 28px 22px; }
+
+/* 오행 5컬럼 테이블 */
+.ohang-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 12px;
+}
+.ohang-table th {
+  padding: 8px 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-dark);
+  border: 1px solid var(--border);
+  background: var(--cream);
+  text-align: center;
+}
+.ohang-table td {
+  padding: 10px 4px;
+  font-size: 14px;
+  font-weight: 800;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+.ohang-table td.has-val  { color: var(--gold-deep); }
+.ohang-table td.lacks    { color: var(--text-tiny); }
+.ohang-bar-row td {
+  padding: 4px 6px;
+  border: none;
+  border-bottom: 1px solid var(--border);
+}
+.ohang-bar-wrap {
+  height: 6px;
+  background: rgba(0,0,0,0.07);
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 0 4px;
+}
+.ohang-bar { height: 100%; border-radius: 3px; }
+
+.analysis-box {
+  background: var(--cream-warm);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 12px;
+  color: var(--text-mid);
+  line-height: 1.9;
+}
+
+/* 사주팔자 테이블 */
+.saju-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 14px;
+}
+.saju-table td {
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid rgba(212,167,106,0.4);
+}
+.saju-table .stem-row td {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--brown-dark);
+  background: var(--gold-bg);
+  height: 14mm;
+  letter-spacing: 2px;
+}
+.saju-table .branch-row td {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #c0392b;
+  background: rgba(253,240,223,0.45);
+  height: 14mm;
+}
+.saju-table .label-row td {
+  font-size: 8px;
+  color: var(--text-light);
+  background: #f5f0e8;
+  height: 7mm;
+  font-weight: 500;
+}
+
+/* 표지 안내 */
+.cover-note {
+  font-size: 11px;
+  color: var(--text-mid);
+  line-height: 1.9;
+  margin-bottom: 8px;
+}
+.cover-footer {
+  text-align: center;
+  font-size: 10px;
+  color: var(--text-tiny);
+  line-height: 2;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  margin-top: 12px;
+}
+
+/* ════════════════════════════════════════
+   이름 카드 (PART 2)
+════════════════════════════════════════ */
+.name-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.name-card.top3 {
+  border-color: var(--gold-deep);
+  box-shadow: 0 2px 10px rgba(196,154,85,0.18);
+}
+
+.name-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+}
+.name-card.top3 .name-card-header {
+  background: linear-gradient(90deg, rgba(212,167,106,0.15) 0%, transparent 100%);
+  border-bottom-color: var(--gold-deep);
+}
+
+.name-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-light);
+  letter-spacing: 1px;
+  min-width: 40px;
+}
+.name-card.top3 .name-badge { color: var(--gold-deep); font-size: 11px; }
+
+.name-full {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 21px;
+  font-weight: 900;
+  color: var(--text-dark);
+  text-align: center;
+  flex: 1;
+  letter-spacing: 2px;
+}
+.name-full span { color: var(--gold-deep); }
+
+.name-strokes {
+  font-size: 9px;
+  color: var(--text-tiny);
+  text-align: right;
+  min-width: 40px;
+}
+
+/* 카드 바디: 한자줄 + 상세 */
+.name-card-hanja-line {
+  padding: 5px 16px;
+  font-size: 11px;
+  color: var(--text-light);
+  background: #fff;
+  border-bottom: 1px solid rgba(238,223,200,0.5);
+  letter-spacing: 3px;
+}
+
+.name-card-body {
+  display: flex;
+  background: #fff;
+}
+
+.name-chars {
+  display: flex;
+  border-right: 1px solid rgba(238,223,200,0.6);
+}
+.char-block {
+  text-align: center;
+  padding: 10px 12px;
+  border-right: 1px solid rgba(238,223,200,0.4);
+  min-width: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.char-block:last-child { border-right: none; }
+
+.char-glyph {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--brown-dark);
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.char-strokes {
+  font-size: 8px;
+  color: var(--text-tiny);
+}
+.char-elem {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: rgba(0,0,0,0.04);
+}
+.char-meaning {
+  font-size: 8px;
+  color: var(--text-light);
+}
+
+.name-detail {
+  flex: 1;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.detail-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--brown-dark);
+  margin-bottom: 2px;
+  letter-spacing: 0.5px;
+}
+.detail-meaning {
+  font-size: 10px;
+  line-height: 1.7;
+  color: var(--text-dark);
+}
+.detail-saju {
+  font-size: 9.5px;
+  line-height: 1.7;
+  color: var(--text-mid);
+}
+.detail-summary {
+  font-size: 10px;
+  color: var(--gold-deep);
+  font-weight: 700;
+  background: var(--gold-bg);
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-top: 2px;
+}
+
+/* ════════════════════════════════════════
+   삼합/원진 (PART 3)
+════════════════════════════════════════ */
+.injin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.injin-table th {
+  padding: 9px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-dark);
+  border: 1px solid var(--border);
+  background: var(--cream);
+  text-align: center;
+}
+.injin-table th:first-child { text-align: left; }
+.injin-table td {
+  padding: 9px 10px;
+  font-size: 11px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+.injin-table td:first-child {
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: left;
+}
+.injin-table tr:nth-child(even) td { background: var(--cream); }
+.status-ok   { color: #27ae60; }
+.status-mid  { color: #e67e22; }
+.status-bad  { color: #c0392b; }
+
+/* ════════════════════════════════════════
+   마지막 페이지
+════════════════════════════════════════ */
+.closing-section {
+  background: var(--brown-dark);
+  padding: 48px 24px;
+  text-align: center;
+  min-height: 297mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.closing-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 20px auto;
+  opacity: 0.5;
+}
+.closing-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.closing-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.9;
+  margin-bottom: 10px;
+}
+.closing-star {
+  display: inline-block;
+  background: rgba(212,167,106,0.15);
+  border: 1px solid rgba(212,167,106,0.35);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 22px;
+  border-radius: 30px;
+  margin-bottom: 28px;
+}
+.closing-brand {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  line-height: 2;
+  margin-top: 12px;
+}
+.closing-brand strong {
+  color: rgba(255,255,255,0.7);
+  font-weight: 700;
+}
+
+/* ════════════════════════════════════════
+   인쇄
+════════════════════════════════════════ */
+@media print {
+  body { background: white; }
+  .page { margin: 0; box-shadow: none; page-break-after: always; }
+  .page:last-of-type { page-break-after: auto; }
+  @page { size: A4; margin: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════
+     PAGE 1 — 표지
+════════════════════════════════════ -->
+<div class="page">
+
+  <!-- 히어로 -->
+  <div class="hero">
+    <div class="hero-icon">🌙</div>
+    <div class="hero-label">AI × 사주 명리학</div>
+    <div class="hero-name">장 ○○</div>
+    <div class="hero-subtitle">아기 이름 오행 분석 리포트</div>
+    <div class="hero-info-box">
+      <div class="hero-info-row"><strong>성별</strong>남아</div>
+      <div class="hero-info-row"><strong>생년월일</strong>2023년 03월 14일 &nbsp;18시 48분</div>
+      <div class="hero-info-row"><strong>주 오행</strong><span style="color:#6bcb77;">목 (木 · 창의·성장)</span></div>
+    </div>
+    <div class="hero-disclaimer">
+      ⚠️ 본 리포트는 전통 사주 명리학을 AI로 분석한 <strong style="color:rgba(255,255,255,0.85);">참고용 자료</strong>입니다. 이름 선택의 최종 결정은 보호자의 판단에 따르며, 특정 결과를 보장하지 않습니다.
+    </div>
+  </div>
+
+  <div class="cover-content">
+
+    <!-- PART 1: 오행 분석 -->
+    <div class="part-badge">PART 1 · 오행 분석</div>
+    <div class="part-title">아기 사주 오행 구성</div>
+
+    <div class="part-block" style="padding:18px 16px;">
+      <!-- 사주팔자 -->
+      <div style="font-size:11px;font-weight:700;color:var(--text-light);margin-bottom:8px;">사주팔자 (四柱八字)</div>
+      <table class="saju-table" style="margin-bottom:16px;">
+        <tr class="stem-row">
+          <td>계</td><td>신</td><td>을</td><td>계</td>
+        </tr>
+        <tr class="branch-row">
+          <td>사</td><td>미</td><td>묘</td><td>묘</td>
+        </tr>
+        <tr class="label-row">
+          <td>시주(時柱)</td><td>일주(日柱)</td><td>월주(月柱)</td><td>년주(年柱)</td>
+        </tr>
+      </table>
+
+      <!-- 오행 5컬럼 -->
+      <div style="font-size:11px;font-weight:700;color:var(--text-light);margin-bottom:8px;">오행 분포 (五行 分布)</div>
+      <table class="ohang-table">
+        <tr>
+          <th>🌱 목(木)</th>
+          <th>🔥 화(火)</th>
+          <th>🌸 토(土)</th>
+          <th>⚡ 금(金)</th>
+          <th>💧 수(水)</th>
+        </tr>
+        <tr>
+          <td class="has-val">3.1 <span style="font-size:10px;color:var(--text-light);">(39%)</span></td>
+          <td class="lacks">0.8 ⚠️<span style="font-size:10px;display:block;font-weight:400;color:var(--text-tiny);">(10%)</span></td>
+          <td class="lacks">0.8 ⚠️<span style="font-size:10px;display:block;font-weight:400;color:var(--text-tiny);">(10%)</span></td>
+          <td class="lacks">1.2 ⚠️<span style="font-size:10px;display:block;font-weight:400;color:var(--text-tiny);">(15%)</span></td>
+          <td class="has-val">2.0 <span style="font-size:10px;color:var(--text-light);">(25%)</span></td>
+        </tr>
+      </table>
+
+      <!-- 진행 막대 -->
+      <table style="width:100%;border-collapse:collapse;margin:8px 0 12px;">
+        <tr>
+          <td style="width:20%;padding:2px 4px;"><div class="ohang-bar-wrap"><div class="ohang-bar" style="width:39%;background:var(--wood);"></div></div></td>
+          <td style="width:20%;padding:2px 4px;"><div class="ohang-bar-wrap"><div class="ohang-bar" style="width:10%;background:var(--fire);"></div></div></td>
+          <td style="width:20%;padding:2px 4px;"><div class="ohang-bar-wrap"><div class="ohang-bar" style="width:10%;background:var(--earth);"></div></div></td>
+          <td style="width:20%;padding:2px 4px;"><div class="ohang-bar-wrap"><div class="ohang-bar" style="width:15%;background:var(--metal);"></div></div></td>
+          <td style="width:20%;padding:2px 4px;"><div class="ohang-bar-wrap"><div class="ohang-bar" style="width:25%;background:var(--water);"></div></div></td>
+        </tr>
+      </table>
+
+      <!-- 상세 분석 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;margin-bottom:10px;">
+        <!-- 강점 -->
+        <div style="background:#f0f9f0;border:1px solid #b8ddb8;border-radius:8px;padding:12px 14px;">
+          <div style="font-size:10px;font-weight:800;color:#2E7D32;margin-bottom:8px;letter-spacing:0.5px;">✅ 강점 (목·수 기운 풍부)</div>
+          <div style="font-size:10px;color:#3a5a3a;line-height:1.9;">
+            · 창의력과 상상력이 뛰어나 예술·학문 분야에서 두각을 나타냄<br>
+            · 성장력과 적응력이 좋아 어떤 환경에서도 잘 자람<br>
+            · 인자하고 따뜻한 마음씨로 주변에 사람이 모임<br>
+            · 지혜롭고 감수성이 풍부해 공부운·명예운 긍정적
+          </div>
+        </div>
+        <!-- 보완점 -->
+        <div style="background:#fff8f0;border:1px solid #f0d4a8;border-radius:8px;padding:12px 14px;">
+          <div style="font-size:10px;font-weight:800;color:#c0392b;margin-bottom:8px;letter-spacing:0.5px;">⚠️ 보완이 필요한 기운</div>
+          <div style="font-size:10px;color:#5a3a2a;line-height:1.9;">
+            · <strong style="color:#C62828;">화(火) 부족</strong> → 표현력·열정·사교성이 약해질 수 있음<br>
+            · <strong style="color:#D4860A;">토(土) 부족</strong> → 중심 잡기 어렵고 판단력이 흔들릴 수 있음<br>
+            · <strong style="color:#455A64;">금(金) 부족</strong> → 결단력·추진력이 다소 약해질 수 있음<br>
+            · 세 가지 기운 모두 이름으로 보완 필요
+          </div>
+        </div>
+      </div>
+
+      <!-- 이름 짓기 방향 -->
+      <div style="background:#fdf0df;border:1px solid #eedfc8;border-radius:8px;padding:12px 14px;margin-bottom:0;">
+        <div style="font-size:10px;font-weight:800;color:#c49a55;margin-bottom:8px;letter-spacing:0.5px;">🖊️ 이름을 이렇게 지으세요</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:8px;">
+          <div style="background:#fff;border-radius:6px;padding:8px 10px;border:1px solid #eedfc8;text-align:center;">
+            <div style="font-size:10px;font-weight:800;color:#C62828;margin-bottom:3px;">화(火) 보완</div>
+            <div style="font-size:9px;color:#6b5c4e;line-height:1.7;">勳·炫·煜·陽·炎<br><span style="color:#999;">열정·표현력·활동성</span></div>
+          </div>
+          <div style="background:#fff;border-radius:6px;padding:8px 10px;border:1px solid #eedfc8;text-align:center;">
+            <div style="font-size:10px;font-weight:800;color:#D4860A;margin-bottom:3px;">토(土) 보완</div>
+            <div style="font-size:9px;color:#6b5c4e;line-height:1.7;">玹·賢·志·祐·培<br><span style="color:#999;">안정·신뢰·판단력</span></div>
+          </div>
+          <div style="background:#fff;border-radius:6px;padding:8px 10px;border:1px solid #eedfc8;text-align:center;">
+            <div style="font-size:10px;font-weight:800;color:#455A64;margin-bottom:3px;">금(金) 보완</div>
+            <div style="font-size:9px;color:#6b5c4e;line-height:1.7;">瑞·善·始·鍾·鉉<br><span style="color:#999;">결단력·추진력·의지</span></div>
+          </div>
+        </div>
+        <div style="font-size:9.5px;color:#8a7060;line-height:1.8;">
+          💡 <strong>'장(張)'의 음령오행은 금(金)</strong>이므로 이름 첫 글자에 금(金)이나 수(水) 기운의 한자를 쓰면 성과 이름이 자연스럽게 상생(相生)합니다. 세 가지 부족한 기운 중 하나라도 이름에 담으면 아이의 오행이 균형을 이룹니다.
+        </div>
+      </div>
+    </div>
+
+    <!-- 안내 문구 -->
+    <p class="cover-note">
+      이 리포트에는 <strong>10개의 이름 후보</strong>가 담겨 있습니다.<br>
+      <strong>★ 추천</strong> 표시된 이름이 오행 균형상 가장 강력히 권장하는 이름입니다.
+    </p>
+
+    <div class="cover-footer">
+      발급일: 2026년 03월 27일 &nbsp;|&nbsp; 주문번호: 0BA1212A<br>
+      써노바 작명연구소 &nbsp;·&nbsp; AI 사주 오행 분석 기반 작명 서비스
+    </div>
+  </div>
+</div><!-- /PAGE 1 -->
+
+
+<!-- ════════════════════════════════════
+     PAGE 2 — 이름 후보 1~4
+════════════════════════════════════ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="part-badge">PART 2 · 이름 추천</div>
+    <div class="part-title">추천 이름 10선 (十選)</div>
+
+    <!-- No.1 ★ 서준 -->
+    <div class="name-card top3">
+      <div class="name-card-header">
+        <div class="name-badge">★ 추천</div>
+        <div class="name-full">장 <span>서준</span></div>
+        <div class="name-strokes">총획 33획</div>
+      </div>
+      <div class="name-card-hanja-line">張 &nbsp;瑞 俊</div>
+      <div class="name-card-body">
+        <div class="name-chars">
+          <div class="char-block">
+            <div class="char-glyph">瑞</div>
+            <div class="char-strokes">13획</div>
+            <div class="char-elem" style="color:var(--metal);">金</div>
+            <div class="char-meaning">상서로울 서</div>
+          </div>
+          <div class="char-block">
+            <div class="char-glyph">俊</div>
+            <div class="char-strokes">9획</div>
+            <div class="char-elem" style="color:var(--fire);">火</div>
+            <div class="char-meaning">준수할 준</div>
+          </div>
+        </div>
+        <div class="name-detail">
+          <div>
+            <div class="detail-label">이름의 의미</div>
+            <div class="detail-meaning">상서로운 기운이 서려 빛나고, 빼어난 재능과 지혜로움을 겸비하여 어디서든 빛을 발하며 크게 발전할 아이입니다.</div>
+          </div>
+          <div>
+            <div class="detail-label">사주와의 인연</div>
+            <div class="detail-saju">부족한 금(金)과 화(火) 기운을 이름으로 보완. '장(張)'의 음령오행 금(金)과 '서(瑞)'·'준(俊)'의 음령오행 금(金)이 조화롭게 이어져 음령오행 또한 길합니다.</div>
+          </div>
+          <div class="detail-summary">→ 부족한 금·화 동시 보완. 리더십과 지혜를 갖춘 인상.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No.2 ★ 현우 玹祐 -->
+    <div class="name-card top3">
+      <div class="name-card-header">
+        <div class="name-badge">★ 추천</div>
+        <div class="name-full">장 <span>현우</span></div>
+        <div class="name-strokes">총획 31획</div>
+      </div>
+      <div class="name-card-hanja-line">張 &nbsp;玹 祐</div>
+      <div class="name-card-body">
+        <div class="name-chars">
+          <div class="char-block">
+            <div class="char-glyph">玹</div>
+            <div class="char-strokes">11획</div>
+            <div class="char-elem" style="color:var(--earth);">土</div>
+            <div class="char-meaning">옥돌 현</div>
+          </div>
+          <div class="char-block">
+            <div class="char-glyph">祐</div>
+            <div class="char-strokes">9획</div>
+            <div class="char-elem" style="color:var(--earth);">土</div>
+            <div class="char-meaning">도울 우</div>
+          </div>
+        </div>
+        <div class="name-detail">
+          <div>
+            <div class="detail-label">이름의 의미</div>
+            <div class="detail-meaning">옥처럼 귀하고 아름다운 인품을 지니고, 하늘의 도움을 받아 항상 평안하고 복된 삶을 살아갈 아이입니다.</div>
+          </div>
+          <div>
+            <div class="detail-label">사주와의 인연</div>
+            <div class="detail-saju">부족한 토(土) 기운을 이름 두 글자 모두로 보완. '장(張)' 금(金)과 '현(玹)'·'우(祐)' 수(水)가 금생수(金生水)로 이어져 순조로운 흐름을 만듭니다.</div>
+          </div>
+          <div class="detail-summary">→ 부족한 토 기운 대폭 보완. 덕망 있고 안정적인 인상.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No.3 ★ 시훈 -->
+    <div class="name-card top3">
+      <div class="name-card-header">
+        <div class="name-badge">★ 추천</div>
+        <div class="name-full">장 <span>시훈</span></div>
+        <div class="name-strokes">총획 35획</div>
+      </div>
+      <div class="name-card-hanja-line">張 &nbsp;始 勳</div>
+      <div class="name-card-body">
+        <div class="name-chars">
+          <div class="char-block">
+            <div class="char-glyph">始</div>
+            <div class="char-strokes">8획</div>
+            <div class="char-elem" style="color:var(--metal);">金</div>
+            <div class="char-meaning">비로소 시</div>
+          </div>
+          <div class="char-block">
+            <div class="char-glyph">勳</div>
+            <div class="char-strokes">16획</div>
+            <div class="char-elem" style="color:var(--fire);">火</div>
+            <div class="char-meaning">공 훈</div>
+          </div>
+        </div>
+        <div class="name-detail">
+          <div>
+            <div class="detail-label">이름의 의미</div>
+            <div class="detail-meaning">매사에 시작이 좋고 큰 공적을 세워 빛나는 삶을 살아갈 아이입니다. 뛰어난 리더십과 추진력으로 새로운 길을 개척합니다.</div>
+          </div>
+          <div>
+            <div class="detail-label">사주와의 인연</div>
+            <div class="detail-saju">부족한 금(金)과 화(火) 기운을 이름으로 보완. '장(張)' 금(金)과 '시(始)' 금(金)이 비화(比和)하고 '훈(勳)' 수(水)로 이어져 조화롭습니다.</div>
+          </div>
+          <div class="detail-summary">→ 부족한 금·화 동시 보완. 성공과 명예를 함께 갖춘 이름.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No.4 태양 -->
+    <div class="name-card">
+      <div class="name-card-header">
+        <div class="name-badge">No.4</div>
+        <div class="name-full">장 <span style="color:var(--text-dark);">태양</span></div>
+        <div class="name-strokes">총획 33획</div>
+      </div>
+      <div class="name-card-hanja-line">張 &nbsp;泰 陽</div>
+      <div class="name-card-body">
+        <div class="name-chars">
+          <div class="char-block">
+            <div class="char-glyph">泰</div>
+            <div class="char-strokes">10획</div>
+            <div class="char-elem" style="color:var(--water);">水</div>
+            <div class="char-meaning">클 태</div>
+          </div>
+          <div class="char-block">
+            <div class="char-glyph">陽</div>
+            <div class="char-strokes">12획</div>
+            <div class="char-elem" style="color:var(--fire);">火</div>
+            <div class="char-meaning">볕 양</div>
+          </div>
+        </div>
+        <div class="name-detail">
+          <div>
+            <div class="detail-label">이름의 의미</div>
+            <div class="detail-meaning">크고 밝은 태양처럼 따뜻한 마음으로 세상을 비추고, 활기찬 기운으로 주변에 긍정적인 영향을 미치는 아이입니다.</div>
+          </div>
+          <div>
+            <div class="detail-label">사주와의 인연</div>
+            <div class="detail-saju">부족한 화(火) 기운을 '양(陽)'으로 보완. '태(泰)'는 음령오행이 화(火)로 발음되어 오행 균형에 도움을 줍니다.</div>
+          </div>
+          <div class="detail-summary">→ 화(火) 기운 보완. 따뜻하고 활기찬 인상.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /PAGE 2 -->
+
+
+<!-- ════════════════════════════════════
+     PAGE 3 — 이름 후보 5~8
+════════════════════════════════════ -->
+<div class="page">
+  <div class="page-inner">
+
+    <!-- No.5 지우 -->
+    <div class="name-card">
+      <div class="name-card-header">
+        <div class="name-badge">No.5</div>
+        <div class="name-full">장 <span style="color:var(--text-dark);">지우</span></div>
+        <div class="name-strokes">총획 27획</div>
+      </div>
+      <div class="name-card-hanja-line">張 &nbsp;志 祐</div>
+      <div class="name-card-body">
+        <div class="name-chars">
+          <div class="char-block">
+            <div class="char-glyph">志</div>
+            <div class="char-strokes">7획</div>
+            <div class="char-elem" style="color:var(--earth);">土</div>
+            <div class="char-meaning">뜻 지</div>
+          </div>
+          <div class="char-block">
+            <div class="char-glyph">祐</div>
+            <div class="char-strokes">9획</div>
+            <div class="char-elem" style="color:var(--earth);">土</div>
+            <div class="char-meaning">도울 우</div>
+          </div>
+        </div>
+        <div class="name-detail">
+          <div>
+            <div class="detail-label">이름의 의미</div>
+            <div class="detail-meaning">굳은 뜻을 세워 목표를 향해 나아가고, 하늘의 도움을 받아 모든 일이 순조롭게 풀리며 번창할 아이입니다.</div>
+          </div>
+          <div>
+            <div class="detail-label">사주와의 인연</div>
+            <div class="detail-saju">부족한 토(土) 기운을 두 글자 모두로 보완. '장(張)' 금(金)과 '지(志)' 금(金)이 비화하고 '우(祐)' 수(水)로 이어져 조화롭습니다.</div>
+          </div>
+          <div class="detail-summary">→ 토 기운 대폭 보완. 강한 의지와 신뢰감을 주는 이름.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No.6 준우 -->
+    <div class="name-card">
+      <div class="name-card-header">
+        <div class="name-badge">No.6</div>
+        <div class="name-full">장 <span style="color:var(--text-dark);">준우</span></div>
+        <div class="name-strokes">총획 29획</div>
+      </div>
+      <div class="name-card-hanja-line">張 &nbsp;俊 祐</div>
+      <div class="name-card-body">
+        <div class="name-chars">
+          <div class="char-block">
+            <div class="char-glyph">俊</div>
+            <div class="char-strokes">9획</div>
+            <div class="char-elem" style="color:var(--fire);">火</div>
+            <div class="char-meaning">준수할 준</div>
+          </div>
+          <div class="char-block">
+            <div class="char-glyph">祐</div>
+            <div class="char-strokes">9획</div>
+            <div class="char-elem" style="color:var(--earth);">土</div>
+            <div class="char-meaning">도울 우</div>
+          </div>
+        </div>
+        <div class="name-detail">
+          <div>
+            <div class="detail-label">이름의 의미</div>
+            <div class="detail-meaning">뛰어난 재능과 준수한 인품을 지니고, 하늘의 도움을 받아 매사에 순조롭게 발전하며 복을 누릴 아이입니다.</div>
+          </div>
+          <div>
+            <div class="detail-label">사주와의 인연</div>
+            <div class="detail-saju">부족한 화(火)와 토(土) 기운을 모두 보완. '장(張)' 금(金)과 '준(俊)' 금(金)이 비화하고 '우(祐)' 수(水)로 이어져 조화롭습니다.</div>
+          </div>
+          <div class="detail-summary">→ 화·토 동시 보완. 재능과 복 모두를 갖춘 이름.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No.7 선우 -->
+    <div class="name-card">
+      <div class="name-card-header">
+        <div class="name-badge">No.7</div>
+        <div class="name-full">장 <span style="color:var(--text-dark);">선우</span></div>
+        <div class="name-strokes">총획 32획</div>
+      </div>
+      <div class="name-card-hanja-line">張 &nbsp;善 祐</div>
+      <div class="name-card-body">
+        <div class="name-chars">
+          <div class="char-block">
+            <div class="char-glyph">善</div>
+            <div class="char-strokes">12획</div>
+            <div class="char-elem" style="color:var(--metal);">金</div>
+            <div class="char-meaning">착할 선</div>
+          </div>
+          <div class="char-block">
+            <div class="char-glyph">祐</div>
+            <div class="char-strokes">9획</div>
+            <div class="char-elem" style="color:var(--earth);">土</div>
+            <div class="char-meaning">도울 우</div>
+          </div>
+        </div>
+        <div class="name-detail">
+          <div>
+            <div class="detail-label">이름의 의미</div>
+            <div class="detail-meaning">선한 마음과 따뜻한 성품으로 주변에 사랑을 베풀고, 하늘의 도움을 받아 복된 삶을 살아갈 아이입니다.</div>
+          </div>
+          <div>
+            <div class="detail-label">사주와의 인연</div>
+            <div class="detail-saju">부족한 금(金)과 토(土) 기운을 모두 보완. '장(張)' 금(金)과 '선(善)' 금(金)이 비화하고 '우(祐)' 수(水)로 이어져 조화롭습니다.</div>
+          </div>
+          <div class="detail-summary">→ 금·토 동시 보완. 선한 덕망과 신뢰감을 주는 이름.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No.8 도현 -->
+    <div class="name-card">
+      <div class="name-card-header">
+        <div class="name-badge">No.8</div>
+        <div class="name-full">장 <span style="color:var(--text-dark);">도현</span></div>
+        <div class="name-strokes">총획 31획</div>
+      </div>
+      <div class="name-card-hanja-line">張 &nbsp;度 玹</div>
+      <div class="name-card-body">
+        <div class="name-chars">
+          <div class="char-block">
+            <div class="char-glyph">度</div>
+            <div class="char-strokes">9획</div>
+            <div class="char-elem" style="color:var(--fire);">火</div>
+            <div class="char-meaning">법도 도</div>
+          </div>
+          <div class="char-block">
+            <div class="char-glyph">玹</div>
+            <div class="char-strokes">11획</div>
+            <div class="char-elem" style="color:var(--earth);">土</div>
+            <div class="char-meaning">옥돌 현</div>
+          </div>
+        </div>
+        <div class="name-detail">
+          <div>
+            <div class="detail-label">이름의 의미</div>
+            <div class="detail-meaning">법도를 지키며 바르게 살아가고, 옥처럼 귀한 인품으로 빛나는 삶을 살아갈 아이입니다. 많은 사람에게 존경받는 리더로 성장합니다.</div>
+          </div>
+          <div>
+            <div class="detail-label">사주와의 인연</div>
+            <div class="detail-saju">부족한 화(火)와 토(土) 기운을 모두 보완. '장(張)' 금(金)과 '도(度)' 화(火)가 금극화로 상극하나 '현(玹)' 수(水)로 이어져 흐름을 만듭니다.</div>
+          </div>
+          <div class="detail-summary">→ 화·토 동시 보완. 바른 인품과 리더십이 느껴지는 이름.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /PAGE 3 -->
+
+
+<!-- ════════════════════════════════════
+     PAGE 4 — 이름 후보 9~10
+════════════════════════════════════ -->
+<div class="page">
+  <div class="page-inner">
+
+    <!-- No.9 현우 賢祐 -->
+    <div class="name-card">
+      <div class="name-card-header">
+        <div class="name-badge">No.9</div>
+        <div class="name-full">장 <span style="color:var(--text-dark);">현우</span></div>
+        <div class="name-strokes">총획 35획</div>
+      </div>
+      <div class="name-card-hanja-line">張 &nbsp;賢 祐</div>
+      <div class="name-card-body">
+        <div class="name-chars">
+          <div class="char-block">
+            <div class="char-glyph">賢</div>
+            <div class="char-strokes">15획</div>
+            <div class="char-elem" style="color:var(--earth);">土</div>
+            <div class="char-meaning">어질 현</div>
+          </div>
+          <div class="char-block">
+            <div class="char-glyph">祐</div>
+            <div class="char-strokes">9획</div>
+            <div class="char-elem" style="color:var(--earth);">土</div>
+            <div class="char-meaning">도울 우</div>
+          </div>
+        </div>
+        <div class="name-detail">
+          <div>
+            <div class="detail-label">이름의 의미</div>
+            <div class="detail-meaning">어질고 현명한 지혜를 지니고, 하늘의 도움을 받아 항상 평안하고 복된 삶을 살아갈 아이입니다.</div>
+          </div>
+          <div>
+            <div class="detail-label">사주와의 인연</div>
+            <div class="detail-saju">부족한 토(土) 기운을 두 글자 모두로 보완. '장(張)' 금(金)과 '현(賢)'·'우(祐)' 수(水)가 금생수(金生水)로 이어져 순조롭습니다.</div>
+          </div>
+          <div class="detail-summary">→ 토 기운 대폭 보완. 어질고 현명한 인품의 이름.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No.10 희찬 -->
+    <div class="name-card">
+      <div class="name-card-header">
+        <div class="name-badge">No.10</div>
+        <div class="name-full">장 <span style="color:var(--text-dark);">희찬</span></div>
+        <div class="name-strokes">총획 41획</div>
+      </div>
+      <div class="name-card-hanja-line">張 &nbsp;熙 燦</div>
+      <div class="name-card-body">
+        <div class="name-chars">
+          <div class="char-block">
+            <div class="char-glyph">熙</div>
+            <div class="char-strokes">13획</div>
+            <div class="char-elem" style="color:var(--fire);">火</div>
+            <div class="char-meaning">빛날 희</div>
+          </div>
+          <div class="char-block">
+            <div class="char-glyph">燦</div>
+            <div class="char-strokes">17획</div>
+            <div class="char-elem" style="color:var(--fire);">火</div>
+            <div class="char-meaning">빛날 찬</div>
+          </div>
+        </div>
+        <div class="name-detail">
+          <div>
+            <div class="detail-label">이름의 의미</div>
+            <div class="detail-meaning">밝게 빛나 세상에 널리 이름을 알리고, 찬란하게 빛나는 삶을 살아갈 아이입니다. 뜨거운 열정으로 큰 성공과 명예를 얻습니다.</div>
+          </div>
+          <div>
+            <div class="detail-label">사주와의 인연</div>
+            <div class="detail-saju">부족한 화(火) 기운을 두 글자 모두로 보완. '장(張)' 금(金)과 '희(熙)' 수(水), '찬(燦)' 금(金)이 금생수·수생금으로 이어져 조화롭습니다.</div>
+          </div>
+          <div class="detail-summary">→ 화 기운 대폭 보완. 열정적이고 빛나는 인상의 이름.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /PAGE 4 -->
+
+
+<!-- ════════════════════════════════════
+     PAGE 5 — PART 3 · 음령오행 & 종합 분석
+════════════════════════════════════ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="part-badge">PART 3 · 음령오행 &amp; 종합 분석</div>
+    <div class="part-title">이름의 소리에 담긴 오행 — 음령오행(音靈五行) 분석</div>
+
+    <!-- 음령오행 설명 -->
+    <div style="background:linear-gradient(135deg,#2b1a0e,#4a2c10);border-radius:12px;padding:16px 18px;margin-bottom:14px;color:#fff;">
+      <div style="font-size:11px;font-weight:700;color:#d4a76a;margin-bottom:8px;letter-spacing:1px;">음령오행이란?</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.85);line-height:1.9;">
+        한자의 뜻(획수오행)과 별도로, <strong style="color:#d4a76a;">이름을 소리 내어 부를 때</strong> 발생하는 기운입니다.<br>
+        초성(첫 자음)에 따라 오행이 결정되며, 성(姓)과 이름의 음령오행이 상생(相生) 흐름을 이루면 이름을 부를수록 기운이 강해집니다.
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+        <span style="background:rgba(46,125,50,0.3);border:1px solid #4a8;color:#8fda8f;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;">ㄱ·ㅋ → 목(木)</span>
+        <span style="background:rgba(198,40,40,0.3);border:1px solid #c66;color:#ffaaaa;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;">ㄴ·ㄷ·ㄹ·ㅌ → 화(火)</span>
+        <span style="background:rgba(212,134,10,0.3);border:1px solid #c90;color:#ffd080;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;">ㅇ·ㅎ → 토(土)</span>
+        <span style="background:rgba(69,90,100,0.4);border:1px solid #888;color:#ccc;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;">ㅅ·ㅈ·ㅊ → 금(金)</span>
+        <span style="background:rgba(21,101,192,0.3);border:1px solid #48a;color:#8ac8ff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;">ㅁ·ㅂ·ㅍ → 수(水)</span>
+      </div>
+    </div>
+
+    <!-- 이름별 음령오행 표 -->
+    <div class="part-block" style="padding:16px 14px;margin-bottom:14px;">
+      <div style="font-size:12px;font-weight:700;color:#2b1a0e;margin-bottom:10px;">이름별 음령오행 흐름</div>
+      <table style="width:100%;border-collapse:collapse;font-size:11px;">
+        <tr style="background:#2b1a0e;">
+          <td style="padding:7px 8px;color:#d4a76a;font-weight:700;border:1px solid #4a2c10;">이름</td>
+          <td style="padding:7px 6px;color:#d4a76a;font-weight:700;border:1px solid #4a2c10;text-align:center;">성(張)</td>
+          <td style="padding:7px 6px;color:#d4a76a;font-weight:700;border:1px solid #4a2c10;text-align:center;">첫글자</td>
+          <td style="padding:7px 6px;color:#d4a76a;font-weight:700;border:1px solid #4a2c10;text-align:center;">둘째글자</td>
+          <td style="padding:7px 8px;color:#d4a76a;font-weight:700;border:1px solid #4a2c10;text-align:center;">사주 보완</td>
+          <td style="padding:7px 8px;color:#d4a76a;font-weight:700;border:1px solid #4a2c10;text-align:center;">희소성</td>
+        </tr>
+        <!-- No.1 서준 -->
+        <tr style="background:#fffdf8;">
+          <td style="padding:6px 8px;font-weight:800;color:#2b1a0e;border:1px solid #eedfc8;">★ 서준</td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#e8e8e8;color:#455A64;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">금</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#e8e8e8;color:#455A64;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">서→금</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#e8e8e8;color:#455A64;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">준→금</span></td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:12px;">금 강화</td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:11px;color:#c0392b;">흔함 ★</td>
+        </tr>
+        <!-- No.2 현우 -->
+        <tr>
+          <td style="padding:6px 8px;font-weight:800;color:#2b1a0e;border:1px solid #eedfc8;">★ 현우</td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#e8e8e8;color:#455A64;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">금</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">현→토</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">우→토</span></td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:12px;">토 보완</td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:11px;color:#4a8c3f;">★★★★</td>
+        </tr>
+        <!-- No.3 시훈 -->
+        <tr style="background:#fffdf8;">
+          <td style="padding:6px 8px;font-weight:800;color:#2b1a0e;border:1px solid #eedfc8;">★ 시훈</td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#e8e8e8;color:#455A64;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">금</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#e8e8e8;color:#455A64;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">시→금</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">훈→토</span></td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:12px;">금·토 보완</td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:11px;color:#4a8c3f;">★★★★★</td>
+        </tr>
+        <!-- No.4 태양 -->
+        <tr>
+          <td style="padding:6px 8px;font-weight:700;color:#2b1a0e;border:1px solid #eedfc8;">태양</td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#e8e8e8;color:#455A64;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">금</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#fee2e2;color:#991b1b;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">태→화</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">양→토</span></td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:12px;color:#c0392b;font-weight:700;">화·토 보완 ◎</td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:11px;color:#4a8c3f;">★★★★★</td>
+        </tr>
+        <!-- No.5~10 간략 -->
+        <tr style="background:#fffdf8;">
+          <td style="padding:6px 8px;font-weight:700;color:#2b1a0e;border:1px solid #eedfc8;">지우</td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#e8e8e8;color:#455A64;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">금</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#e8e8e8;color:#455A64;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">지→금</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">우→토</span></td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:12px;">금·토 보완</td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:11px;color:#4a8c3f;">★★★★</td>
+        </tr>
+        <tr>
+          <td style="padding:6px 8px;font-weight:700;color:#2b1a0e;border:1px solid #eedfc8;">준우</td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#e8e8e8;color:#455A64;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">금</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#e8e8e8;color:#455A64;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">준→금</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">우→토</span></td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:12px;">금·토 보완</td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:11px;color:#4a8c3f;">★★★★</td>
+        </tr>
+        <tr style="background:#fffdf8;">
+          <td style="padding:6px 8px;font-weight:700;color:#2b1a0e;border:1px solid #eedfc8;">선우</td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#e8e8e8;color:#455A64;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">금</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#e8e8e8;color:#455A64;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">선→금</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">우→토</span></td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:12px;">금·토 보완</td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:11px;color:#c0392b;">흔함 ★★</td>
+        </tr>
+        <tr>
+          <td style="padding:6px 8px;font-weight:700;color:#2b1a0e;border:1px solid #eedfc8;">도현</td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#e8e8e8;color:#455A64;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">금</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#fee2e2;color:#991b1b;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">도→화</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">현→토</span></td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:12px;color:#c0392b;font-weight:700;">화·토 보완 ◎</td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:11px;color:#c0392b;">흔함 ★</td>
+        </tr>
+        <tr style="background:#fffdf8;">
+          <td style="padding:6px 8px;font-weight:700;color:#2b1a0e;border:1px solid #eedfc8;">현우(賢)</td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#e8e8e8;color:#455A64;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">금</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">현→토</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">우→토</span></td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:12px;">토 보완</td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:11px;color:#4a8c3f;">★★★★</td>
+        </tr>
+        <tr>
+          <td style="padding:6px 8px;font-weight:700;color:#2b1a0e;border:1px solid #eedfc8;">희찬</td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#e8e8e8;color:#455A64;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">금</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">희→토</span></td>
+          <td style="padding:6px 6px;text-align:center;border:1px solid #eedfc8;"><span style="background:#e8e8e8;color:#455A64;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;">찬→금</span></td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:12px;">토·금 보완</td>
+          <td style="padding:6px 8px;text-align:center;border:1px solid #eedfc8;font-size:11px;color:#4a8c3f;">★★★★★</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 종합 추천 -->
+    <div class="part-block" style="padding:16px 14px;">
+      <div style="font-size:12px;font-weight:700;color:#2b1a0e;margin-bottom:12px;">🏆 음령오행 기준 최종 추천</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+        <!-- 1위 -->
+        <div style="border:2px solid #d4a76a;border-radius:12px;padding:14px 12px;background:#fffdf8;text-align:center;">
+          <div style="font-size:10px;font-weight:700;color:#d4a76a;margin-bottom:6px;">🥇 종합 1위</div>
+          <div style="font-size:22px;font-weight:900;color:#2b1a0e;margin-bottom:4px;">시훈</div>
+          <div style="font-size:10px;color:#8a7060;margin-bottom:8px;">금·토 음령 보완</div>
+          <div style="font-size:10px;color:#6b5c4e;line-height:1.7;">오행 ✅<br>음령 ✅<br>희소성 ✅</div>
+        </div>
+        <!-- 2위 -->
+        <div style="border:1px solid #eedfc8;border-radius:12px;padding:14px 12px;text-align:center;">
+          <div style="font-size:10px;font-weight:700;color:#c49a55;margin-bottom:6px;">🥈 종합 2위</div>
+          <div style="font-size:22px;font-weight:900;color:#2b1a0e;margin-bottom:4px;">태양</div>
+          <div style="font-size:10px;color:#8a7060;margin-bottom:8px;">화·토 음령 보완</div>
+          <div style="font-size:10px;color:#6b5c4e;line-height:1.7;">오행 ✅<br>음령 ✅✅<br>희소성 ✅</div>
+        </div>
+        <!-- 3위 -->
+        <div style="border:1px solid #eedfc8;border-radius:12px;padding:14px 12px;text-align:center;">
+          <div style="font-size:10px;font-weight:700;color:#c49a55;margin-bottom:6px;">🥉 종합 3위</div>
+          <div style="font-size:22px;font-weight:900;color:#2b1a0e;margin-bottom:4px;">희찬</div>
+          <div style="font-size:10px;color:#8a7060;margin-bottom:8px;">토·금 음령 보완</div>
+          <div style="font-size:10px;color:#6b5c4e;line-height:1.7;">오행 ✅<br>음령 ✅<br>희소성 ✅</div>
+        </div>
+      </div>
+      <div style="margin-top:12px;padding:10px 12px;background:#fdf0df;border-radius:8px;font-size:11px;color:#7a5c2e;line-height:1.8;">
+        💡 <strong>음령오행 관점에서</strong> 부족한 화(火) 기운을 소리로도 보완하려면 <strong style="color:#c0392b;">태양·도현</strong>이 유리합니다.
+        단, 도현은 2026년 남아 이름 3위(흔한 이름)로, 독창성을 원하신다면 <strong style="color:#2b1a0e;">태양</strong>을 강력 추천드립니다.
+      </div>
+    </div>
+  </div>
+</div><!-- /PAGE 5 PART 3 -->
+
+
+<!-- ════════════════════════════════════
+     PAGE 6 — 마무리
+════════════════════════════════════ -->
+<div class="page">
+  <div class="closing-section">
+    <div style="font-size:44px;margin-bottom:16px;">🌙</div>
+    <div class="closing-divider"></div>
+    <div class="closing-title">소중한 아이에게<br>최고의 이름을 선물하세요</div>
+    <div class="closing-sub">이름에는 부모의 사랑과 소망이 담겨 있습니다.</div>
+    <div class="closing-star">★ 추천 이름: 서준 · 현우 · 시훈</div>
+    <div class="closing-sub" style="max-width:300px;">
+      오행의 균형 속에서 아이가 건강하고 행복하게 자라나길 바랍니다.<br><br>
+      선택이 어려우실 때는 ★ 추천 이름을 참고하시고,<br>
+      가족과 함께 가장 마음에 드는 이름으로 결정하세요.
+    </div>
+    <div class="closing-divider"></div>
+    <div class="closing-brand">
+      <strong>써노바 작명연구소</strong><br>
+      AI 사주 오행 분석 기반 작명 서비스<br>
+      발급일: 2026년 03월 27일 &nbsp;|&nbsp; 주문번호: 0BA1212A
+    </div>
+  </div>
+</div><!-- /PAGE 5 -->
+
+</body>
+</html>
