@@ -92,7 +92,7 @@ def generate_names(surname: str, gender: str, saju_data: dict) -> list:
     prompt = _build_prompt(surname, gender, saju_data)
 
     last_err = None
-    for model in ["gemini-2.0-flash"]:
+    for model in ["gemini-2.0-flash-lite"]:
         try:
             response = client.models.generate_content(
                 model=model,
