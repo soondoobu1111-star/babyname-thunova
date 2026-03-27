@@ -146,7 +146,7 @@ body {
   font-size:13px; line-height:1.6;
 }
 .page {
-  width:210mm; margin:0 auto;
+  width:210mm; min-height:297mm; margin:0 auto;
   background:var(--cream);
   break-after:page; page-break-after:always;
 }
@@ -447,10 +447,11 @@ def _name_card(name: dict, surname: str) -> str:
       <div style="font-size:10px;color:var(--text-light);">한자</div>
     </div>
     <div style="flex:1;">
-      <div class="name-korean">{_esc(surname)}<span>{_esc(korean)}</span>
-        <span style="font-size:10px;color:var(--text-tiny);font-weight:400;margin-left:6px;">총획 {total_s}획</span>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        <div class="name-korean" style="margin-bottom:0;">{_esc(surname)}<span>{_esc(korean)}</span></div>
+        {badge_html}
+        <span style="font-size:10px;color:var(--text-tiny);font-weight:400;">총획 {total_s}획</span>
       </div>
-      <div>{badge_html}</div>
     </div>
   </div>
   <div style="font-size:11px;color:var(--text-mid);line-height:1.9;margin-bottom:8px;">{detail_html}</div>
