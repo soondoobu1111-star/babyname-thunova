@@ -92,14 +92,14 @@ def generate_names(surname: str, gender: str, saju_data: dict) -> list:
     prompt = _build_prompt(surname, gender, saju_data)
 
     last_err = None
-    for model in ["gemini-2.0-flash", "gemini-2.5-flash"]:
+    for model in ["gemini-2.0-flash"]:
         try:
             response = client.models.generate_content(
                 model=model,
                 contents=prompt,
                 config={
                     "temperature": 0.7,
-                    "max_output_tokens": 16384,
+                    "max_output_tokens": 3000,
                     "response_mime_type": "application/json",
                 },
             )
