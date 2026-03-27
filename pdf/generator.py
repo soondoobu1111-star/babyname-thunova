@@ -146,12 +146,12 @@ body {
   font-size:13px; line-height:1.6;
 }
 .page {
-  width:210mm; height:297mm; margin:0 auto;
-  background:var(--cream); overflow:hidden;
+  width:210mm; margin:0 auto;
+  background:var(--cream);
   break-after:page; page-break-after:always;
 }
 .page:last-of-type { break-after:auto; page-break-after:auto; }
-.page-inner { padding:14mm 16mm; }
+.page-inner { padding:12mm 15mm; }
 .part-badge {
   display:inline-block; background:var(--gold-bg); color:var(--gold-deep);
   font-size:10px; font-weight:700; padding:3px 12px; border-radius:20px;
@@ -160,7 +160,7 @@ body {
 .part-title { font-size:16px; font-weight:800; color:var(--text-dark); margin-bottom:14px; }
 .part-block {
   background:#fff; border:1px solid var(--border); border-radius:14px;
-  padding:18px 16px; margin-bottom:14px;
+  padding:14px 14px; margin-bottom:10px;
 }
 .hero {
   background:linear-gradient(160deg,var(--brown-dark) 0%,var(--brown-mid) 50%,var(--brown-dark) 100%);
@@ -196,11 +196,12 @@ body {
 .sw-title { font-size:11px; font-weight:700; margin-bottom:8px; }
 .name-card {
   border:1px solid var(--border); border-radius:12px;
-  padding:14px 14px; margin-bottom:10px; background:#fff;
+  padding:10px 12px; margin-bottom:8px; background:#fff;
+  page-break-inside:avoid; break-inside:avoid;
 }
 .name-card.top { border:2px solid var(--gold); background:#fffdf8; }
-.name-hj { font-size:26px; font-weight:900; color:var(--text-dark); line-height:1; }
-.name-korean { font-size:20px; font-weight:900; color:var(--text-dark); margin-bottom:4px; }
+.name-hj { font-size:22px; font-weight:900; color:var(--text-dark); line-height:1; }
+.name-korean { font-size:18px; font-weight:900; color:var(--text-dark); margin-bottom:3px; }
 .name-korean span { color:var(--gold-deep); }
 .name-badge-num {
   display:inline-block; background:var(--gold-bg); color:var(--gold-deep);
@@ -224,8 +225,9 @@ body {
 .eumryeong-table tr:nth-child(odd) td { background:#fffdf8; }
 .closing-section {
   display:flex; flex-direction:column; align-items:center; justify-content:center;
-  min-height:297mm; background:linear-gradient(160deg,var(--brown-dark) 0%,var(--brown-mid) 60%,var(--brown-dark) 100%);
+  height:297mm; background:linear-gradient(160deg,var(--brown-dark) 0%,var(--brown-mid) 60%,var(--brown-dark) 100%);
   text-align:center; padding:60px 40px;
+  page-break-inside:avoid; break-inside:avoid;
 }
 .closing-divider { width:80px; height:2px; background:var(--gold); border-radius:2px; margin:20px auto; }
 .closing-title { font-family:'Noto Serif CJK KR','Noto Sans CJK KR',serif; color:#fff; font-size:22px; font-weight:700; line-height:1.5; margin-bottom:10px; }
