@@ -129,9 +129,8 @@ def _birth_str(birth_date: date, birth_hour: Optional[int], birth_minute: Option
 # ══════════════════════════════════════════════════════
 def _css() -> str:
     return """
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
+@page { size: A4; margin: 0mm; }
 :root {
   --brown-dark:#2b1a0e; --brown-mid:#4a2c10;
   --gold:#d4a76a; --gold-deep:#c49a55; --gold-bg:#fdf0df;
@@ -141,18 +140,17 @@ def _css() -> str:
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
-  font-family:'Noto Sans KR','Apple SD Gothic Neo',sans-serif;
+  font-family:'Noto Sans CJK KR','Noto Sans KR','Apple SD Gothic Neo',sans-serif;
   background:#e8e0d4; color:var(--text-dark);
   -webkit-print-color-adjust:exact; print-color-adjust:exact;
   font-size:13px; line-height:1.6;
 }
 .page {
-  width:210mm; min-height:297mm; margin:10mm auto;
-  background:var(--cream); overflow:hidden;
-  box-shadow:0 4px 28px rgba(0,0,0,0.2);
-  page-break-after:always;
+  width:210mm; min-height:297mm; margin:0 auto;
+  background:var(--cream);
+  break-after:page; page-break-after:always;
 }
-.page:last-of-type { page-break-after:auto; }
+.page:last-of-type { break-after:auto; page-break-after:auto; }
 .page-inner { padding:14mm 16mm; }
 .part-badge {
   display:inline-block; background:var(--gold-bg); color:var(--gold-deep);
@@ -170,7 +168,7 @@ body {
 }
 .hero-label { color:var(--gold); font-size:11px; letter-spacing:4px; font-weight:700; margin-bottom:12px; }
 .hero-name {
-  font-family:'Noto Serif KR',serif; color:#fff;
+  font-family:'Noto Serif CJK KR','Noto Sans CJK KR',serif; color:#fff;
   font-size:38px; font-weight:900; letter-spacing:6px; margin-bottom:4px;
 }
 .hero-subtitle { color:var(--gold); font-size:14px; font-weight:500; margin-bottom:22px; letter-spacing:2px; }
@@ -230,7 +228,7 @@ body {
   text-align:center; padding:60px 40px;
 }
 .closing-divider { width:80px; height:2px; background:var(--gold); border-radius:2px; margin:20px auto; }
-.closing-title { font-family:'Noto Serif KR',serif; color:#fff; font-size:22px; font-weight:700; line-height:1.5; margin-bottom:10px; }
+.closing-title { font-family:'Noto Serif CJK KR','Noto Sans CJK KR',serif; color:#fff; font-size:22px; font-weight:700; line-height:1.5; margin-bottom:10px; }
 .closing-sub { color:rgba(255,255,255,0.7); font-size:13px; line-height:1.8; max-width:320px; margin-bottom:8px; }
 .closing-star { color:var(--gold); font-size:14px; font-weight:700; margin:16px 0 10px; }
 .closing-brand { color:rgba(255,255,255,0.55); font-size:11px; line-height:1.9; }
