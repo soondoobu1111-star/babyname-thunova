@@ -106,7 +106,7 @@ def _rarity_cell(korean_name: str, gender: str) -> str:
     common = _COMMON_MALE if gender == "male" else _COMMON_FEMALE
     if korean_name in common:
         return '<span style="color:#c0392b;font-size:11px;font-weight:600;">흔함 ▲</span>'
-    return '<span style="color:#4a8c3f;font-size:11px;font-weight:600;">희소 ✦</span>'
+    return '<span style="color:#4a8c3f;font-size:11px;font-weight:600;">희소 *</span>'
 
 def _gender_kor(gender: str) -> str:
     return "남아" if gender == "male" else "여아"
@@ -518,7 +518,7 @@ def _page_part3(saju_data: dict, names: list, surname: str, gender: str) -> str:
         scored_list.append({"name": k, "score": score, "is_top": is_top, "elems": elems})
 
     top3 = sorted(scored_list, key=lambda x: (x["score"], int(x["is_top"])), reverse=True)[:3]
-    medal = ["🥇","🥈","🥉"]; rank_labels = ["1위","2위","3위"]
+    medal = ["★","▲","◆"]; rank_labels = ["1위","2위","3위"]
     podium_html = ""
     for i, cand in enumerate(top3):
         is_first = i == 0
@@ -563,7 +563,7 @@ def _page_part3(saju_data: dict, names: list, surname: str, gender: str) -> str:
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px;">{podium_html}</div>
       <div style="padding:10px 12px;background:var(--gold-bg);border-radius:8px;font-size:11px;color:#7a5c2e;line-height:1.9;">
         → 음령오행 보완 점수가 높을수록 이름을 부를 때마다 부족한 기운이 채워집니다.
-        희소성 높은 이름(희소 ✦)은 개성과 독창성을 더해줍니다.
+        희소성 높은 이름(희소 *)은 개성과 독창성을 더해줍니다.
       </div>
     </div>
   </div>
