@@ -6,4 +6,3 @@ libcairo2
 libffi-dev
 shared-mime-info
 fonts-noto-cjk
-fonts-noto-cjk-extra
