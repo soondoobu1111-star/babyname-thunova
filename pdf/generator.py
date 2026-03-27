@@ -21,7 +21,7 @@ HANJA_BRANCHES = {
     "신": "申", "유": "酉", "술": "戌", "해": "亥",
 }
 
-ELEMENT_EMOJI = {"목": "🌱", "화": "🔥", "토": "🌍", "금": "⚙️", "수": "💧"}
+ELEMENT_EMOJI = {"목": "木", "화": "火", "토": "土", "금": "金", "수": "水"}
 ELEMENT_BAR  = {"목": "#4a8c3f", "화": "#c0392b", "토": "#c49a55", "금": "#607d8b", "수": "#2980b9"}
 ELEMENT_BG   = {"목": "#dcfce7", "화": "#fee2e2", "토": "#fef3c7", "금": "#f1f5f9", "수": "#dbeafe"}
 ELEMENT_FG   = {"목": "#166534", "화": "#991b1b", "토": "#92400e", "금": "#455a64", "수": "#1d4ed8"}
@@ -64,11 +64,11 @@ _WEAKNESS = {
     "수": "수(水) 기운이 부족해 <strong>지혜·직관</strong>이 약해질 수 있습니다. 이름에 수 기운 한자를 담아 보완하세요.",
 }
 _HANJA_RECO = {
-    "목": ("🌱 목(木)", "#166534", "가(嘉)·건(建)·근(根)·기(起)·림(林)·수(樹)·성(成)·원(元)"),
-    "화": ("🔥 화(火)", "#991b1b", "광(光)·도(道)·명(明)·서(曙)·열(烈)·영(榮)·훈(勳)"),
-    "토": ("🌍 토(土)", "#92400e", "기(基)·산(山)·안(安)·우(宇)·원(苑)·현(玹)·호(浩)·희(熙)"),
-    "금": ("⚙️ 금(金)", "#455a64", "강(鋼)·근(瑾)·서(瑞)·선(璇)·옥(玉)·찬(鑽)·현(鉉)·연(鍊)"),
-    "수": ("💧 수(水)", "#1d4ed8", "민(旻)·빈(濱)·윤(潤)·준(濬)·진(溱)·택(澤)·함(涵)·천(泉)"),
+    "목": ("木 목(木)", "#166534", "가(嘉)·건(建)·근(根)·기(起)·림(林)·수(樹)·성(成)·원(元)"),
+    "화": ("火 화(火)", "#991b1b", "광(光)·도(道)·명(明)·서(曙)·열(烈)·영(榮)·훈(勳)"),
+    "토": ("土 토(土)", "#92400e", "기(基)·산(山)·안(安)·우(宇)·원(苑)·현(玹)·호(浩)·희(熙)"),
+    "금": ("金 금(金)", "#455a64", "강(鋼)·근(瑾)·서(瑞)·선(璇)·옥(玉)·찬(鑽)·현(鉉)·연(鍊)"),
+    "수": ("水 수(水)", "#1d4ed8", "민(旻)·빈(濱)·윤(潤)·준(濬)·진(溱)·택(澤)·함(涵)·천(泉)"),
 }
 
 
@@ -146,8 +146,8 @@ body {
   font-size:13px; line-height:1.6;
 }
 .page {
-  width:210mm; min-height:297mm; margin:0 auto;
-  background:var(--cream);
+  width:210mm; height:297mm; margin:0 auto;
+  background:var(--cream); overflow:hidden;
   break-after:page; page-break-after:always;
 }
 .page:last-of-type { break-after:auto; page-break-after:auto; }
@@ -164,7 +164,7 @@ body {
 }
 .hero {
   background:linear-gradient(160deg,var(--brown-dark) 0%,var(--brown-mid) 50%,var(--brown-dark) 100%);
-  padding:50px 28px; text-align:center;
+  padding:28px 28px 24px; text-align:center;
 }
 .hero-label { color:var(--gold); font-size:11px; letter-spacing:4px; font-weight:700; margin-bottom:12px; }
 .hero-name {
@@ -260,7 +260,7 @@ def _page_cover(surname, gender, birth_date, birth_hour, birth_minute, birth_sec
     return f"""
 <div class="page">
   <div class="hero">
-    <div style="font-size:42px;margin-bottom:14px;">🌙</div>
+    <div style="font-size:28px;font-weight:900;color:var(--gold);letter-spacing:6px;margin-bottom:10px;">◈ 써노바 ◈</div>
     <div class="hero-label">써노바 작명연구소 · AI 사주 오행 분석</div>
     <div class="hero-name">{_esc(surname)}○○</div>
     <div class="hero-subtitle">아기 이름 오행 분석 리포트</div>
@@ -271,7 +271,7 @@ def _page_cover(surname, gender, birth_date, birth_hour, birth_minute, birth_sec
       <div class="hero-info-row"><strong>주 오행</strong>{_esc(dominant)}</div>
     </div>
     <div class="hero-disclaimer">
-      ⚠️ 본 리포트는 전통 사주 명리학을 AI로 분석한 <strong style="color:rgba(255,255,255,0.85);">참고용 자료</strong>입니다.
+      ※ 본 리포트는 전통 사주 명리학을 AI로 분석한 <strong style="color:rgba(255,255,255,0.85);">참고용 자료</strong>입니다.
       이름 선택의 최종 결정은 보호자의 판단에 따르며, 특정 결과를 보장하지 않습니다.
     </div>
   </div>
@@ -280,9 +280,9 @@ def _page_cover(surname, gender, birth_date, birth_hour, birth_minute, birth_sec
       <div style="background:var(--gold-bg);border:1px solid var(--border);border-radius:10px;padding:14px 16px;">
         <div style="font-size:10px;font-weight:700;color:var(--gold-deep);margin-bottom:8px;letter-spacing:1px;">REPORT CONTENTS</div>
         <div style="font-size:12px;color:var(--text-mid);line-height:2.1;">
-          📊 PART 1 · 사주팔자 &amp; 오행 분석<br>
-          ✍️ PART 2 · 추천 이름 10선<br>
-          🔊 PART 3 · 음령오행 &amp; 종합 추천
+          [1] PART 1 · 사주팔자 &amp; 오행 분석<br>
+          [2] PART 2 · 추천 이름 10선<br>
+          [3] PART 3 · 음령오행 &amp; 종합 추천
         </div>
       </div>
       <div style="background:var(--cream-warm);border:1px solid var(--border);border-radius:10px;padding:14px 16px;">
@@ -351,7 +351,7 @@ def _page_part1(saju_data: dict) -> str:
         pct = _bar_pct(val)
         col = ELEMENT_BAR.get(elem,"#999")
         fg  = ELEMENT_FG.get(elem,"#666") if val > LACKING_THRESHOLD else "#999"
-        warn = " ⚠️" if elem in lacking else ""
+        warn = " ▲" if elem in lacking else ""
         obar_rows += (
             f'<div class="obar-row">'
             f'<div class="obar-label">{ELEMENT_EMOJI.get(elem,"")} {elem}</div>'
@@ -392,15 +392,15 @@ def _page_part1(saju_data: dict) -> str:
     </div>
     <div class="sw-grid">
       <div class="sw-card" style="background:#f0f7ee;border:1px solid #b8d9b2;">
-        <div class="sw-title" style="color:#4a8c3f;">✅ 타고난 강점</div>
+        <div class="sw-title" style="color:#4a8c3f;">◆ 타고난 강점</div>
         <div style="font-size:12px;color:#3a5c38;line-height:1.8;">{strength}</div>
       </div>
       <div class="sw-card" style="background:#fff7ee;border:1px solid #f0c87a;">
-        <div class="sw-title" style="color:#c0392b;">⚠️ 보완 필요</div>
+        <div class="sw-title" style="color:#c0392b;">▲ 보완 필요</div>
         <div style="font-size:12px;color:#7a3a2a;line-height:1.8;">{weakness_lines}</div>
       </div>
     </div>
-    <div style="font-size:12px;font-weight:700;color:var(--text-dark);margin-bottom:8px;">📌 이름 짓기 방향</div>
+    <div style="font-size:12px;font-weight:700;color:var(--text-dark);margin-bottom:8px;">■ 이름 짓기 방향</div>
     {hanja_dirs}
     <div style="margin-top:10px;padding:10px 14px;background:var(--cream);border:1px solid var(--border);border-radius:8px;font-size:11px;color:var(--text-mid);line-height:1.9;">
       이름 후보 10개는 모두 위 방향을 기반으로 선정되었습니다. ★ 추천 이름이 오행 균형상 가장 권장하는 이름입니다.
@@ -453,7 +453,7 @@ def _name_card(name: dict, surname: str) -> str:
   </div>
   <div style="font-size:11px;color:var(--text-mid);line-height:1.9;margin-bottom:8px;">{detail_html}</div>
   <div style="font-size:12px;color:var(--text-mid);line-height:1.8;margin-bottom:6px;">{_esc(meaning)}</div>
-  <div style="font-size:11px;color:var(--text-light);line-height:1.7;margin-bottom:8px;">💡 {_esc(reason)}</div>
+  <div style="font-size:11px;color:var(--text-light);line-height:1.7;margin-bottom:8px;">→ {_esc(reason)}</div>
 </div>"""
 
 
@@ -557,10 +557,10 @@ def _page_part3(saju_data: dict, names: list, surname: str, gender: str) -> str:
       </table>
     </div>
     <div class="part-block" style="padding:14px;">
-      <div style="font-size:12px;font-weight:700;color:var(--text-dark);margin-bottom:12px;">🏆 음령오행 기준 종합 추천</div>
+      <div style="font-size:12px;font-weight:700;color:var(--text-dark);margin-bottom:12px;">★ 음령오행 기준 종합 추천</div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px;">{podium_html}</div>
       <div style="padding:10px 12px;background:var(--gold-bg);border-radius:8px;font-size:11px;color:#7a5c2e;line-height:1.9;">
-        💡 음령오행 보완 점수가 높을수록 이름을 부를 때마다 부족한 기운이 채워집니다.
+        → 음령오행 보완 점수가 높을수록 이름을 부를 때마다 부족한 기운이 채워집니다.
         희소성 높은 이름(희소 ✦)은 개성과 독창성을 더해줍니다.
       </div>
     </div>
@@ -578,7 +578,7 @@ def _page_closing(names: list, order_id: str) -> str:
     return f"""
 <div class="page">
   <div class="closing-section">
-    <div style="font-size:44px;margin-bottom:16px;">🌙</div>
+    <div style="font-size:26px;font-weight:900;color:var(--gold);letter-spacing:6px;margin-bottom:16px;">◈ 써노바 ◈</div>
     <div class="closing-divider"></div>
     <div class="closing-title">소중한 아이에게<br>최고의 이름을 선물하세요</div>
     <div class="closing-sub">이름에는 부모의 사랑과 소망이 담겨 있습니다.</div>
